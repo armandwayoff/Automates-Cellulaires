@@ -30,20 +30,23 @@ def next_generation(previous_state):
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
-DIMENSION = 500
-RESOLUTION = 100
-CELL_WIDTH = int(DIMENSION / RESOLUTION)
+
+DIMENSION_RATIO = 2
+SCREEN_HEIGHT = 700
+SCREEN_WIDTH = SCREEN_HEIGHT * DIMENSION_RATIO
+
+RESOLUTION = 150  # on height
+CELL_WIDTH = int(SCREEN_WIDTH / RESOLUTION)
 
 launched = True
-board = [[0 for _ in range(RESOLUTION)] for _ in range(RESOLUTION)]
+board = [[0 for _ in range(RESOLUTION * DIMENSION_RATIO)] for _ in range(RESOLUTION)]
 
 for i in range(2000):
-    board[random.randint(0, RESOLUTION-1)][random.randint(0, RESOLUTION-1)] = 1
+    board[random.randint(0, RESOLUTION - 1)][random.randint(0, RESOLUTION - 1)] = 1
 
 pygame.init()
-screen = pygame.display.set_mode((DIMENSION, DIMENSION))
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Conway's Game of Life")
-
 
 while launched:
     for event in pygame.event.get():
@@ -57,4 +60,3 @@ while launched:
                 pygame.draw.rect(screen, BLACK, [i * CELL_WIDTH, j * CELL_WIDTH, CELL_WIDTH, CELL_WIDTH])
     board = new
     pygame.display.update()
-    
