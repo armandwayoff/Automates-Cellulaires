@@ -1,4 +1,5 @@
 import pygame
+import random
 
 
 def number_of_neighbours(matrix, i, j):
@@ -36,12 +37,8 @@ CELL_WIDTH = int(DIMENSION / RESOLUTION)
 launched = True
 board = [[0 for _ in range(RESOLUTION)] for _ in range(RESOLUTION)]
 
-# Glider
-board[0][1] = 1
-board[2][0] = 1
-board[2][1] = 1
-board[2][2] = 1
-board[1][2] = 1
+for i in range(2000):
+    board[random.randint(0, RESOLUTION-1)][random.randint(0, RESOLUTION-1)] = 1
 
 pygame.init()
 screen = pygame.display.set_mode((DIMENSION, DIMENSION))
@@ -60,3 +57,4 @@ while launched:
                 pygame.draw.rect(screen, BLACK, [i * CELL_WIDTH, j * CELL_WIDTH, CELL_WIDTH, CELL_WIDTH])
     board = new
     pygame.display.update()
+    
