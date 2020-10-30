@@ -1,47 +1,40 @@
 import pygame
 
 
-def neighbours_color(i, j):
+def neighbours_color(x, y):
     neighbours = []
-    if board[i - 1][j - 1] == 1:
-        neighbours.append(1)
-    else:
-        neighbours.append(0)
-    if board[i][j - 1] == 1:
-        neighbours.append(1)
-    else:
-        neighbours.append(0)
-    if board[i + 1][j - 1] == 1:
-        neighbours.append(1)
-    else:
-        neighbours.append(0)
+    for offset in range(-1, 2):
+        if board[x + offset][y - 1] == 1:
+            neighbours.append(1)
+        else:
+            neighbours.append(0)
     return neighbours
 
 
-def set_rule(i, j):
-    neighbours = neighbours_color(i, j)
+def set_rule(x, y):
+    neighbours = neighbours_color(x, y)
 
     if neighbours == [1, 1, 1]:
-        board[i][j] = 0
+        board[x][y] = 0
     elif neighbours == [1, 1, 0]:
-        board[i][j] = 1
+        board[x][y] = 0
     elif neighbours == [1, 0, 1]:
-        board[i][j] = 0
+        board[x][y] = 0
     elif neighbours == [1, 0, 0]:
-        board[i][j] = 0
+        board[x][y] = 1
     elif neighbours == [0, 1, 1]:
-        board[i][j] = 1
+        board[x][y] = 1
     elif neighbours == [0, 1, 0]:
-        board[i][j] = 1
+        board[x][y] = 1
     elif neighbours == [0, 0, 1]:
-        board[i][j] = 1
+        board[x][y] = 1
     else:
-        board[i][j] = 1
+        board[x][y] = 0
 
 
-def new_board(current_line):
-    for i in range(1, RESOLUTION - 1):
-        set_rule(i, current_line)
+def new_board(line):
+    for col in range(1, RESOLUTION - 1):
+        set_rule(col, line)
 
 
 WHITE = (255, 255, 255)
@@ -56,12 +49,12 @@ CELL_WIDTH = int(SCREEN_WIDTH / RESOLUTION)
 
 launched = True
 board = [[0 for _ in range(RESOLUTION * DIMENSION_RATIO)] for _ in range(RESOLUTION)]
-board[int(RESOLUTION / 2)][0] = 1
+board[int(RESOLUTION / 2)][0] = 1  # first cell
 current_line = 1
 
 pygame.init()
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-pygame.display.set_caption("Title")
+pygame.display.set_caption("Elementary Cellular Automaton - Rule 30")
 
 while launched:
     for event in pygame.event.get():
@@ -75,4 +68,3 @@ while launched:
     new_board(current_line)
     current_line += 1
     pygame.display.update()
-   
