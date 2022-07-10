@@ -5,7 +5,7 @@
 
 ## Jeux de la vie de John Conway
 
-#### Exemple: la planeur
+#### Exemple: le planeur
 
 ```
 État initial
