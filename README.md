@@ -1,14 +1,14 @@
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/armandwayoff/Cellular-Automata/blob/main/LICENSE)
 
-# Cellular Automata
+# Automates Cellulaires
 
-## Conway's Game of Life
+## Jeux de la vie de John Conway
 
-#### Output Example : The Glider
+#### Exemple: la planeur
 
 ```
-FIRST STATE
+État initial
 [0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
 [0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
 [1, 1, 1, 0, 0, 0, 0, 0, 0, 0]
@@ -20,7 +20,7 @@ FIRST STATE
 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-FINAL STATE
+État final
 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -32,12 +32,12 @@ FINAL STATE
 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ```
-## Langton's Ant
+## La fourmi de Langton
 
 ![simulation](https://github.com/armandwayoff/Cellular-Automata/blob/main/Langton's%20Ant/simulation.png)
 
-## Elementary Cellular Automaton
+## Automate Cellulaire Élementaire
 
-#### Output Example : rule 30
+#### Exemple: règle 30
 
 ![rule30](https://github.com/armandwayoff/Cellular-Automata/blob/main/Elementary%20Cellular%20Automaton/rule30.png)
